@@ -1,0 +1,43 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.6.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --exec  babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "test": "mocha --exec  babel-node tests/*.test.js",
+    "tests": "nyc mocha tests/*.test.js"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "apollo-server-express": "^2.8.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "chai": "^4.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1"
+  }
+}

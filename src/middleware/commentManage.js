@@ -40,8 +40,9 @@ export const delComment = async (id, req) => {
     const comment = await models.commentModel.findOne({_id: id});
     if (!comment) return {error: "Topic does not exist!"};
 
-    // checking the relevance of the topic for this author
-    if (comment.author != req.user.userId)
+    const sudo = await models.userModel.findById(req.user.userId.sudo);
+    // checking the relevance of the topic for this author this user is admin
+    if (comment.author != req.user.userId || !sudo)
       return {error: "This comment does not belong to you!"};
 
     // delete Topics

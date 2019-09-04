@@ -36,8 +36,9 @@ export const delTopic = async (id, req) => {
     const topic = await models.topicModel.findOne({_id: id});
     if (!topic) return {error: "Topic does not exist!"};
 
+    const sudo = await models.userModel.findById(req.user.userId.sudo);
     // checking the relevance of the topic for this author
-    if (topic.author != req.user.userId)
+    if (topic.author != req.user.userId || !sudo)
       return {error: "This topic does not belong to you!"};
 
     // delete Topic

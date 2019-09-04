@@ -17,6 +17,11 @@ export default mongoose.model("User", {
     type: String,
     require: true
   },
+  sudo: {
+    type: Boolean,
+    require: true,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

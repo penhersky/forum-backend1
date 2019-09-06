@@ -38,7 +38,7 @@ export const delComment = async (id, req) => {
   try {
     // check for topic!
     const comment = await models.commentModel.findOne({_id: id});
-    if (!comment) return {error: "Topic does not exist!"};
+    if (!comment) return {error: "Comment does not exist!"};
 
     const sudo = await models.userModel.findById(req.user.userId.sudo);
     // checking the relevance of the topic for this author this user is admin

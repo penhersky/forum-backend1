@@ -11,7 +11,7 @@ export default gql`
     email: String
     error: String
   }
-  type resultLogin {
+  type resultUser {
     User: User
     error: String
   }

@@ -32,6 +32,7 @@ export const register = async user => {
       image,
       owner: newUser._id
     });
+    await models.fullUserModel.create({owner: newUser._id});
     return {
       id: newUser._id,
       email: newUser.email
